@@ -2,6 +2,14 @@
   float: right;
   margin-right: 15px;
 }
+.allowance .allowance-title {
+  color: white;
+  background-color: #1171a3;
+}
+.allowance h4 {
+  padding: 15px;
+  color: white;
+}
 .expense .expense-title {
   color: white;
   background-color: #1171a3;
