@@ -23,12 +23,15 @@
 
         activate();
 
-        function newExpense(libelle, categorie, date, price, comment){
+        function newExpense(libelle, categorie, date, price, comment, tags){
           this.libelle = libelle;
           this.categorie = categorie;
           this.date = date;
-          this.price = price;
+          this.ttc = price;
+          this.tva = price*(0.20);
+          this.ht = price *(0.80);
           this.comment = comment;
+          this.tags = tags;
         }
 
         function activate() {
@@ -70,7 +73,7 @@
 
 
         function validExpense() {
-
+            let expense = new newExpense('X', 'X', 'X', '20', '', vm.tags); 
         }
     }
 })();

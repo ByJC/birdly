@@ -13,15 +13,23 @@
         vm.createExpense = createExpense;
         vm.createAllowance = createAllowance;
         vm.expenses = [];
+        vm.allowances = [];
         vm.title = 'Dashboard';
 
         activate();
 
         function activate() {
-            var promises = [getExpenses()];
+            var promises = [getExpenses(), getAllowances()];
             return $q.all(promises).then(function() {
                 logger.info('Activated Dashboard View');
             });
+        }
+
+        function getAllowances() {
+          return dataservice.getAllowances().then(function(data){
+            vm.allowances = data;
+            return vm.allowances;
+          })
         }
 
         function getExpenses() {
