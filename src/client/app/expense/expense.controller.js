@@ -11,17 +11,41 @@
         var vm = this;
         vm.title = 'Expense';
 
+        vm.tags = [];
+        vm.tag = '';
+        vm.step = 0;
         vm.steps = getStepsForCreation();
         vm.takePicture = takePicture;
         vm.validPicture = validPicture;
-        vm.step = 0;
+        vm.addTag = addTag;
+        vm.deleteTag = deleteTag;
+        vm.validExpense = validExpense();
 
         activate();
+
+        function newExpense(libelle, categorie, date, price, comment){
+          this.libelle = libelle;
+          this.categorie = categorie;
+          this.date = date;
+          this.price = price;
+          this.comment = comment;
+        }
 
         function activate() {
             logger.info('Activated Expense View');
         }
 
+        function deleteTag(tagToDelete) {
+          console.log(tagToDelete);
+          vm.tags = vm.tags.filter(function (tag){
+            return tag != tagToDelete;
+          })
+        }
+
+        function addTag() {
+          vm.tags.push(vm.tag);
+          vm.tag = '';
+        }
         function takePicture() {
           vm.isPhotoTaken = !vm.isPhotoTaken;
           vm.step = 1;
@@ -43,6 +67,10 @@
               label:'Ajoutez des tags.'
             }
           ];
+
+
+        function validExpense() {
+
         }
     }
 })();

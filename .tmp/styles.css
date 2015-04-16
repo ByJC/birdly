@@ -13,9 +13,6 @@
 .expense .matter {
   margin-top: 17px !important;
 }
-.expense .expense-content {
-  text-align: center;
-}
 .expense .expense-btn {
   margin-top: 300px;
   border-radius: 50% !important;
@@ -25,6 +22,18 @@
 .expense .expense-btn-absolute {
   position: absolute;
 }
+.expense .expense-picture-1 {
+  text-align: center;
+}
+.expense .expense-picture-2 {
+  width: 50%;
+}
+.expense .expense-tag {
+  display: inline-block;
+  padding: 4px;
+  background-color: #eee;
+  margin-right: 5px;
+}
 .expense .expense-icon {
   font-size: 46px;
   margin-right: 0px !important;
@@ -32,10 +41,14 @@
 .expense .expense-take-picture {
   height: 648px;
   background-color: #D7D7D7;
+  text-align: center;
 }
 .expense .expense-step {
   margin-top: 10px;
   padding: 5px !important;
+}
+.expense .btn-add {
+  margin-top: -4px;
 }
 * {
   /*-webkit-box-shadow: none !important;
