@@ -20,11 +20,11 @@
                     templateUrl: 'app/expense/expense.html',
                     controller: 'ExpenseController',
                     controllerAs: 'vm',
-                    title: 'Expense'
-                    // settings: {
-                    //     nav: 2,
-                    //     content: '<i class="fa fa-lock"></i> Expense'
-                    // }
+                    title: 'Expense',
+                    settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Expense'
+                    }
                 }
             }
         ];

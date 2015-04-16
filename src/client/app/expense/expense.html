@@ -1,8 +1,38 @@
-<section class="mainbar">
+<section class="mainbar expense">
     <section class="matter">
         <div class="container">
             <div class="row">
-                <div class="widget wblue">
+
+              <div class="expense-title">
+                <h4>
+                  Créez une nouvelle dépense
+                </h4>
+              </div>
+
+              <h5 class="expense-step">
+                {{vm.steps[vm.step].label}}
+              </h5>
+
+              <div class="expense-content row">
+                <div class="expense-take-picture col-xs-offset-3 col-xs-6" ng-if="!vm.isPhotoTaken">
+                    <button class="btn expense-btn"  ng-click="vm.takePicture();">
+                      <i class="fa fa-camera expense-icon"></i>
+                    </button>
+                  </div>
+                  <div style="text-align:center" ng-if="vm.isPhotoTaken">
+                    <img src="images/facture1.jpg">
+                    </img>
+                  </div>
+                </div>
+
+                <div class="pull-right" ng-if="vm.isPhotoTaken">
+                  <button class="btn btn-danger btn-new-expense" type="button" ng-click="vm.validPicture();">Valider</button>
+                </div>
+
+              </div>
+
+
+                <!-- <div class="widget wblue">
                     <div ht-widget-header title="{{vm.title}}"></div>
                     <div class="widget-content user">
                         <h3>TODO: Implement Your Features</h3>
@@ -10,7 +40,7 @@
                     <div class="widget-foot">
                         <div class="clearfix"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

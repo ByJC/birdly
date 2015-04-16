@@ -10,7 +10,8 @@
     function DashboardController($q, dataservice, logger, $location) {
         var vm = this;
 
-        vm.createNewExpense = createNewExpense;
+        vm.createExpense = createExpense;
+        vm.createAllowance = createAllowance;
         vm.expenses = [];
         vm.title = 'Dashboard';
 
@@ -30,7 +31,11 @@
           })
         }
 
-        function createNewExpense() {
+        function createAllowance() {
+          $location.path('/allowance');
+        }
+
+        function createExpense() {
           $location.path('/expense');
         }
 

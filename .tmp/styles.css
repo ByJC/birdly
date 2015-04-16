@@ -2,6 +2,41 @@
   float: right;
   margin-right: 15px;
 }
+.expense .expense-title {
+  color: white;
+  background-color: #1171a3;
+}
+.expense h4 {
+  padding: 15px;
+  color: white;
+}
+.expense .matter {
+  margin-top: 17px !important;
+}
+.expense .expense-content {
+  text-align: center;
+}
+.expense .expense-btn {
+  margin-top: 300px;
+  border-radius: 50% !important;
+  height: 83px;
+  width: 83px;
+}
+.expense .expense-btn-absolute {
+  position: absolute;
+}
+.expense .expense-icon {
+  font-size: 46px;
+  margin-right: 0px !important;
+}
+.expense .expense-take-picture {
+  height: 648px;
+  background-color: #D7D7D7;
+}
+.expense .expense-step {
+  margin-top: 10px;
+  padding: 5px !important;
+}
 * {
   /*-webkit-box-shadow: none !important;
     -ms-box-shadow: none !important;
