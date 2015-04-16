@@ -5,9 +5,9 @@
         .module('app.expense')
         .controller('ExpenseController', ExpenseController);
 
-    ExpenseController.$inject = ['logger'];
+    ExpenseController.$inject = ['logger', '$rootScope', '$location', '$timeout'];
     /* @ngInject */
-    function ExpenseController(logger) {
+    function ExpenseController(logger, $rootScope, $location, $timeout) {
         var vm = this;
         vm.title = 'Expense';
 
@@ -19,7 +19,7 @@
         vm.validPicture = validPicture;
         vm.addTag = addTag;
         vm.deleteTag = deleteTag;
-        vm.validExpense = validExpense();
+        vm.validExpense = validExpense;
 
         activate();
 
@@ -70,10 +70,15 @@
               label:'Ajoutez des tags.'
             }
           ];
+        }
 
 
         function validExpense() {
-            let expense = new newExpense('X', 'X', 'X', '20', '', vm.tags); 
+            let expense = new newExpense('X', 'X', 'X', '20', '', vm.tags);
+            $location.path('/');
+            $timeout(function() {
+              $rootScope.$broadcast('expense-create', expense);
+            }, 250);
+            console.log(expense);
         }
-    }
-})();
+}})();

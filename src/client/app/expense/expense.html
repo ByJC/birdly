@@ -21,7 +21,7 @@
                   </form>
                 </div>
                 <div class="col-xs-10">
-                    <div ng-repeat="tag in vm.tags" class="expense-tag">
+                    <div ng-repeat="tag in vm.tags track by $index" class="expense-tag">
                       <span>{{::tag}}</span><button class="btn btn-default" ng-click="vm.deleteTag(tag)">-</button>
                     </div>
                 </div>

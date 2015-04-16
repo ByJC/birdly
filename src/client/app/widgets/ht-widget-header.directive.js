@@ -21,8 +21,19 @@
                 'allowCollapse': '@'
             },
             templateUrl: 'app/widgets/widget-header.html',
+            Controller : 'WidgetController',
+            ControllerAs : 'vm',
             restrict: 'EA'
         };
         return directive;
+    }
+
+    function WidgetController($scope) {
+      var vm = this;
+      $scope.switch = switchBetWeenElement;
+
+      function switchBetWeenElement(){
+        $scope.$emit('switch-element');
+      }
     }
 })();

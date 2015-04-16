@@ -2,8 +2,11 @@
     <section class="matter">
         <div class="container">
             <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-danger pull-right" type="button" ng-click="vm.switch();"><i class="fa fa-arrow-right"></i></button>
+              </div>
                 <div class="col-md-12">
-                    <div class="widget wblue">
+                    <div class="widget wblue" ng-show="vm.showExpenses">
                         <div ht-widget-header title="Notes de frais"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
@@ -17,6 +20,7 @@
                                         <th>TVA</th>
                                         <th>HT</th>
                                         <th>Commentaire</th>
+                                        <th>Tags</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -28,12 +32,13 @@
                                       <th>{{expense.tva}}</th>
                                       <th>{{expense.ht}}</th>
                                       <th>{{expense.comment}}</th>
+                                      <th><span ng-repeat="tag in expense.tags track by $index">{{tag}} <span ng-show="!$last">-</span> </span><th>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                       </div>
-                      <div class="widget wviolet">
+                      <div class="widget wviolet" ng-show="!vm.showExpenses">
                         <div ht-widget-header title="Indemnités kilométriques"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
@@ -46,15 +51,18 @@
                                         <th>Kilométrage</th>
                                         <th>TTC</th>
                                         <th>Commentaire</th>
+                                        <th>tags</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="expense in vm.expenses">
-                                      <th>{{expense.libelle}}</th>
-                                      <th>{{expense.date}}</th>
-                                      <th>{{expense.kilometre}}</th>
-                                      <th>{{expense.ttc}}</th>
-                                      <th>{{expense.comment}}</th>
+                                    <tr ng-repeat="allowance in vm.allowances">
+                                      <th>{{allowance.libelle}}</th>
+                                      <th>{{allowance.date}}</th>
+                                      <th>{{allowance.taux}}</th>
+                                      <th>{{allowance.kilometre}}</th>
+                                      <th>{{allowance.ttc}}</th>
+                                      <th>{{allowance.comment}}</th>
+                                      <th><span ng-repeat="tag in allowance.tags">{{tag}}</span><th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -63,10 +71,10 @@
                     </div>
                 </div>
                 <div >
-                  <button class="btn btn-danger btn-new-expense" type="button" ng-click="vm.createExpense();">Créer une note</button>
+                  <button class="btn btn-danger btn-new-expense" type="button" ng-click="vm.createExpense();" ng-show="vm.showExpenses">Créer une note</button>
                 </div>
                 <div >
-                  <button class="btn btn-danger btn-new-expense" type="button" ng-click="vm.createAllowance();">Créer une indémnité kilométrique</button>
+                  <button class="btn btn-danger btn-new-expense" type="button" ng-click="vm.createAllowance();" ng-show="!vm.showExpenses">Créer une indémnité kilométrique</button>
                 </div>
             </div>
         </div>
